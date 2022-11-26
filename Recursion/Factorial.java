@@ -1,11 +1,11 @@
 public class Factorial {
-    static int fact(int n,int k){
+    static int fact(int n){
         if (n==0 || n==1) {
-            return k;
+            return 1;
         }
-        return fact(n-1, k*n);
+        return n * fact(n-1);
     }
     public static void main(String[] args) {
-        System.out.println(fact(3, 1));
+        System.out.println(fact(3));
     }
 }

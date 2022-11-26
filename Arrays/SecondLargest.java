@@ -1,34 +1,21 @@
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class SecondLargest {
 
-    static int secondlargest(int a[], int n) {
-        int largest = 0;
-        int res = -1;
-
-        for (int i = 1; i < n; i++) {
-            if (a[i] > a[largest]) {
-                res = largest;
-                largest = i;
-            } else if (a[i] != a[largest]) {
-                if (res == -1 || a[i] > a[res])
-                    res = i;
+    static int secondlargest(int[] arr) {
+        Arrays.sort(arr);
+        for (int i = arr.length-2; i >=0; i--) {
+            if (arr[i] != arr[arr.length-1]) {
+                return arr[i]; 
             }
         }
-        return res;
+        return -1;
     }
 
     public static void main(String[] args) {
-        int n;
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        int a[] = new int[n];
-        for (int i = 0; i < n; i++) {
-            a[i] = sc.nextInt();
-        }
-        int pos = secondlargest(a, n);
-        System.out.println(a[pos]);
-        sc.close();
+        int[] arr = {10,10,10,10};
+        int ans = secondlargest(arr);
+        System.out.println(ans);
 
     }
 
